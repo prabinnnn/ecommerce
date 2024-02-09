@@ -4,11 +4,14 @@ const app = express();
 const dbConnect = require("./config/dbConnect");
 const authRouter = require("./routes/auth");
 const bodyParser = require("body-parser");
+const { notFound, errorHandler } = require("./middleware/errorHander");
 dbConnect();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 const PORT = Number(process.env.PORT);
 app.use("/api/v1/user", authRouter);
+app.use(notFound);
+app.request(errorHandler);
 app.listen(PORT, () => {
   console.log(`app is runing at ${PORT}`);
 });
