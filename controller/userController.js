@@ -1,6 +1,6 @@
 const User = require("../model/userModel");
-
-const createUser = async (req, res) => {
+const asynHandler = require("express-async-handler");
+const createUser = asynHandler(async (req, res) => {
   const email = req.body.email;
   const findUser = await User.findOne({ email: email }); // Corrected line
   if (!findUser) {
@@ -12,6 +12,6 @@ const createUser = async (req, res) => {
       success: false,
     });
   }
-};
+});
 
 module.exports = { createUser };
