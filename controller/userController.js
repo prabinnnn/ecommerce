@@ -18,4 +18,4 @@ const loginUserControl = asynHandler(async (req, res) => {
   console.log(email, password);
 });
 
-module.exports = { createUser };
+module.exports = { createUser, loginUserControl };
