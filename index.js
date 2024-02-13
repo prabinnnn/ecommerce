@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 const PORT = Number(process.env.PORT);
 app.use("/api/v1/user", authRouter);
 app.use(notFound);
-app.request(errorHandler);
+app.use(errorHandler);
 app.listen(PORT, () => {
   console.log(`app is runing at ${PORT}`);
 });
