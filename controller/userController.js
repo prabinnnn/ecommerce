@@ -31,5 +31,9 @@ const loginUserControl = asynHandler(async (req, res) => {
     console.log("invalid credent");
   }
 });
+const getAllUser = asynHandler(async (req, res) => {
+  const getAllUser = await User.find();
+  res.json({ getAllUser });
+});
 
-module.exports = { createUser, loginUserControl };
+module.exports = { createUser, loginUserControl, getAllUser };
