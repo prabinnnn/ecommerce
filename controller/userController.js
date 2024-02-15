@@ -32,11 +32,35 @@ const loginUserControl = asynHandler(async (req, res) => {
   }
 });
 const getAllUser = asynHandler(async (req, res) => {
-  const getAllUser = await User.find();
-  res.json({ getAllUser });
+  try {
+    const getAllUser = await User.find();
+    res.json({ getAllUser });
+  } catch (e) {
+    next(e);
+  }
 });
 const getaUser = asynHandler(async (req, res) => {
   const { id } = req.params;
-  console.log({ id });
+  try {
+    const getUser = await User.findById({ id });
+    res.json({ getUser });
+  } catch (e) {
+    next(e);
+  }
 });
-module.exports = { createUser, loginUserControl, getAllUser, getaUser };
+const deleteaUser = asynHandler(async (req, res) => {
+  const { id } = req.params;
+  try {
+    const deleteaUser = await User.findByIdAndDelete({ id });
+    res.json({ deleteaUser });
+  } catch (e) {
+    next(e);
+  }
+});
+module.exports = {
+  createUser,
+  loginUserControl,
+  getAllUser,
+  getaUser,
+  deleteaUser,
+};
