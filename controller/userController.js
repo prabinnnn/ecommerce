@@ -58,11 +58,22 @@ const deleteaUser = asynHandler(async (req, res) => {
   }
 });
 const updateUser = asynHandler(async (req, res) => {
-  try{}
-  catch(e)
-  {
-    throw 
-    
+  try {
+    const updateUser = await User.findByIdAndUpdate(
+      id,
+      {
+        firstname: req?.body?.firstname,
+        lastname: req?.body?.lastname,
+        email: req?.body?.email,
+        mobile: req?.body?.email,
+      },
+      {
+        new: true,
+      }
+    );
+    res.json(updateUser);
+  } catch (e) {
+    throw new Error(error);
   }
 });
 module.exports = {
@@ -71,4 +82,5 @@ module.exports = {
   getAllUser,
   getaUser,
   deleteaUser,
+  updateUser,
 };
