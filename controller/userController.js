@@ -57,6 +57,14 @@ const deleteaUser = asynHandler(async (req, res) => {
     next(e);
   }
 });
+const updateUser = asynHandler(async (req, res) => {
+  try{}
+  catch(e)
+  {
+    throw 
+    
+  }
+});
 module.exports = {
   createUser,
   loginUserControl,
