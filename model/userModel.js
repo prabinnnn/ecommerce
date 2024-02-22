@@ -29,6 +29,9 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: "user",
   },
+  cart: {
+    type: Array,
+  },
 });
 userSchema.pre("save", async function (next) {
   const salt = bcrypt.genSaltSync(10);
