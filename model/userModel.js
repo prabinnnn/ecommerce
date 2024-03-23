@@ -33,10 +33,7 @@ const userSchema = new mongoose.Schema({
     type: Array,
     default: [],
   },
-  address: {
-    type: String,
-    required: true,
-  },
+  address: [{ type: ObjectId, ref: "Address" }],
 });
 userSchema.pre("save", async function (next) {
   const salt = bcrypt.genSaltSync(10);
