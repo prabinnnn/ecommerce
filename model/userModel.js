@@ -34,6 +34,7 @@ const userSchema = new mongoose.Schema({
     default: [],
   },
   address: [{ type: ObjectId, ref: "Address" }],
+  wishlist: [{ type: ObjectId, ref: "Product" }],
 });
 userSchema.pre("save", async function (next) {
   const salt = bcrypt.genSaltSync(10);
