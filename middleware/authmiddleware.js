@@ -8,6 +8,7 @@ const authMiddler = asyncHandler((req, res, next) => {
     try {
       if (token) {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        console.log(decoded);
       }
     } catch (e) {
       throw new Error("no authorization token is expired. plz login ");
