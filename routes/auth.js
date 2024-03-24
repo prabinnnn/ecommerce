@@ -6,7 +6,7 @@ const {
   deleteaUser,
   updateUser,
 } = require("../controller/userController");
-const { authMiddler, isadmin } = require("../middleware/authmiddleware");
+const { authMiddler } = require("../middleware/authmiddleware");
 const router = require("express").Router();
 router.post("/register", createUser);
 router.post("/login", loginUserControl);
