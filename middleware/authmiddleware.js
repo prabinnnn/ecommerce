@@ -6,7 +6,12 @@ const authMiddler = asyncHandler((req, res, next) => {
   if (req?.headers?.authorization?.startsWith("bearer")) {
     token = req.header.authorization.split(" ")[1];
     try {
-    } catch (e) {}
+      if (token) {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      }
+    } catch (e) {
+      throw new Error("no authorization token is expired. plz login ");
+    }
   } else {
     throw new Error("there is no token attached to it");
   }
