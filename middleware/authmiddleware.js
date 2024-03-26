@@ -19,7 +19,8 @@ const authMiddler = asyncHandler(async (req, res, next) => {
     throw new Error("there is no token attached to it");
   }
 });
-const isAdmin = asyncHandler((req, res, next) => {
-  console.log(req.user);
+const isAdmin = asyncHandler(async (req, res, next) => {
+  const { email } = req.user;
+  const adminUser = await user.findOne({ email });
 });
 module.exports = { authMiddler, isAdmin };
