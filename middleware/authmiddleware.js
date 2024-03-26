@@ -19,5 +19,7 @@ const authMiddler = asyncHandler(async (req, res, next) => {
     throw new Error("there is no token attached to it");
   }
 });
-const isAdmin = asyncHandler((req, res, next) => {});
-module.exports = { authMiddler };
+const isAdmin = asyncHandler((req, res, next) => {
+  console.log(req.user);
+});
+module.exports = { authMiddler, isAdmin };
