@@ -22,5 +22,10 @@ const authMiddler = asyncHandler(async (req, res, next) => {
 const isAdmin = asyncHandler(async (req, res, next) => {
   const { email } = req.user;
   const adminUser = await user.findOne({ email });
+  if (adminUser.roles != admin) {
+    throw new error("u are not admin");
+  } else {
+    next();
+  }
 });
 module.exports = { authMiddler, isAdmin };
