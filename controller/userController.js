@@ -77,6 +77,8 @@ const updateUser = asynHandler(async (req, res) => {
     throw new Error(error);
   }
 });
+const blockUser = asynHandler(async (req, res) => {});
+const unblockUser = asynHandler(async (req, res) => {});
 module.exports = {
   createUser,
   loginUserControl,

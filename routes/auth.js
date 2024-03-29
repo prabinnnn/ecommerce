@@ -14,6 +14,6 @@ router.get("/alluser", getAllUser);
 router.get("/:id", authMiddler, isAdmin, getaUser);
 router.delete("/:id", deleteaUser);
 router.put("/edit-user", authMiddler, updateUser);
-router.put("/block-user", authMiddler, updateUser);
-router.put("/unblock-user", authMiddler, updateUser);
+router.put("/block-user/:id", authMiddler, updateUser);
+router.put("/unblock-user/:id", authMiddler, updateUser);
 module.exports = router;
