@@ -40,8 +40,8 @@ const getAllUser = asynHandler(async (req, res) => {
   }
 });
 const getaUser = asynHandler(async (req, res) => {
-  console.log(req.User);
-  const { id } = req.params;
+  console.log();
+  const { id } = req.User;
   try {
     const getUser = await User.findById({ id });
     res.json({ getUser });
