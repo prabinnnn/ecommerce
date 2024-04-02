@@ -79,6 +79,15 @@ const updateUser = asynHandler(async (req, res) => {
 });
 const blockUser = asynHandler(async (req, res) => {
   const { id } = req.params;
+  const block = user.findByIdAndDelete(
+    id,
+    {
+      isBlocked: true,
+    },
+    {
+      news: false,
+    }
+  );
   try {
   } catch (e) {}
 });
