@@ -77,7 +77,11 @@ const updateUser = asynHandler(async (req, res) => {
     throw new Error(error);
   }
 });
-const blockUser = asynHandler(async (req, res) => {});
+const blockUser = asynHandler(async (req, res) => {
+  const { id } = req.params;
+  try {
+  } catch (e) {}
+});
 const unblockUser = asynHandler(async (req, res) => {});
 module.exports = {
   createUser,
