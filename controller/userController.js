@@ -85,13 +85,27 @@ const blockUser = asynHandler(async (req, res) => {
       isBlocked: true,
     },
     {
-      news: false,
+      new: true,
+    }
+  );
+  try {
+  } catch (e) {
+    throw new Error(error);
+  }
+});
+const unblockUser = asynHandler(async (req, res) => {
+  const unBlock = user.findByIdAndDelete(
+    id,
+    {
+      isunBlocked: true,
+    },
+    {
+      new: true,
     }
   );
   try {
   } catch (e) {}
 });
-const unblockUser = asynHandler(async (req, res) => {});
 module.exports = {
   createUser,
   loginUserControl,
