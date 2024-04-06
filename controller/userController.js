@@ -61,7 +61,7 @@ const deleteaUser = asynHandler(async (req, res) => {
 });
 const updateUser = asynHandler(async (req, res) => {
   const { _id } = req.User;
-  validateMongooseId;
+  validateMongooseId(_id);
   try {
     const updateUser = await User.findByIdAndUpdate(
       id,
