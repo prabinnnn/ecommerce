@@ -1,6 +1,7 @@
 const { generateToken } = require("../config/jwtToken");
 const User = require("../model/userModel");
 const asynHandler = require("express-async-handler");
+const validateMongooseId = require("../utils/validateMongodb");
 const createUser = asynHandler(async (req, res) => {
   const email = req.body.email;
   const findUser = await User.findOne({ email: email }); // Corrected line
@@ -59,6 +60,8 @@ const deleteaUser = asynHandler(async (req, res) => {
   }
 });
 const updateUser = asynHandler(async (req, res) => {
+  const { _id } = req.User;
+  validateMongooseId;
   try {
     const updateUser = await User.findByIdAndUpdate(
       id,
