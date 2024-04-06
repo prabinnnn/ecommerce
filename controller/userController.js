@@ -101,6 +101,8 @@ const blockUser = asynHandler(async (req, res) => {
   }
 });
 const unblockUser = asynHandler(async (req, res) => {
+  const { _id } = req.params;
+  validateMongooseId(_id);
   const unBlock = await User.findByIdAndDelete(
     id,
     {
